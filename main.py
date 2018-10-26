@@ -33,7 +33,7 @@ def display_signup_form():
 
 ####### the try/except block ############
 def is_integer(num):
-    try:
+    try: 
         int(num)
     except ValueError:
         return False
