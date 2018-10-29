@@ -1,6 +1,38 @@
 from flask import Flask, request, redirect, render_template
 import cgi
 
+# TODO: Create a signup form with fields for Username, Password, Verify
+# Password, Optional email, and submit button
+
+# # TODO:
+# # Check for errors and reject and render feedback:
+# No empty fields
+# username and password must be >3 and <20 char
+# password must match verified password
+# email must have:
+#  a single @
+#  a single .
+#  contain no spaces
+
+
+# TODO:
+
+# Each feedback message must be next to the the field it refers to.
+
+# # TODO:
+# Users should only have to enter email once. 
+# # TODO:
+# Password should be cleared for security reasons.
+
+# TODO:
+# If all input is valid, show a welcome page with a message of "Welcome, [username]!"
+
+# TODO: 
+# Use templates: index.html and elcome.html to render the page. 
+
+# TODO:
+# TODO:
+
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
 
