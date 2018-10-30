@@ -68,6 +68,9 @@ def validate_():
     password = request.form['password']
     email = request.form['email']
 
+    username = int(username)
+    password = int(password)
+    
     name_error =''
     password_error =''
     email_error =''
@@ -90,8 +93,6 @@ def validate_():
             if password != vpassword:
                 password_error = 'Passwords must match.'
             else: 
-                username = int(username)
-                password = int(password)
                 if username > 20 or username < 3:
                     name_error = 'Username and password must be between 3 and 20 characters.'
                 if password > 20 or password < 3:
@@ -107,7 +108,6 @@ def validate_():
         
 @app.route('/welcome')
 def welcome():
-    render_template = request.args('welcome.html')
-    return render_template
+    return render_template('welcome.html ', username=username)
 
 app.run()
