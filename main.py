@@ -66,31 +66,32 @@ def validate_():
 
     username = request.form['username']
     password = request.form['password']
+    v_password = request.form['v_password']
     email = request.form['email']
 
-    username = int(username)
-    password = int(password)
-    
-    name_error =''
-    password_error =''
-    email_error =''
-
     ####### testing the try/except block ############
-    if len(username) < 3 or len(username) > 20:
-        username_error = "Must be between 3 and 20 characters"
-
+    
     for char in username:
         if char == " ":
-            username_error = "Cannot Have Spaces"
+            username_error = "Username cannot Have Spaces"
             break
         else:
             username_error = ""
+    
+    if len(username) < 3 or len(username) > 20:
+        username_error = "Username must be between 3 and 20 characters"
+
+return render_template('index.html', username=username, password=password, v_password=v_password, email=email)
+        
+    name_error =''
+    password_error =''
+    email_error =''
 
         ######### 
         if len(password) <= 0:
             input_error = 'Please complete all fields.'
         else: 
-            if password != vpassword:
+            if password != password:
                 password_error = 'Passwords must match.'
             else: 
                 if username > 20 or username < 3:

@@ -2,24 +2,32 @@
 <html>
     <body>
         <h1>Signup</h1>
-        <form method='POST'>
+        <form action = "/validate" method="POST">
             <label>Username 
                 <input name="username" type = "text" value = "{{username}}" />
             </label>
+            {% if username_error|length !=0%}
             <p class="error">{{username_error}}</p>
+            {% endif %}
             <label>Password
-                <input name="password" type="password" value="{{password}}" />
+                <input name="password" type="password" value="{{password}}" required />
             </label>
-            <p class="error">{{passwd_error}}</p>
+            {% if password_error|length !=0%}
+            <p class="error">{{password_error}}</p>
+            {% endif %}
             <label>Verify Password
-                <input name="password" type="password" value="{{password}}" />
+                <input name="v_password" type="password" required />
             </label>
-            <p class="error">{{passwd_error}}</p>
+            {% if v_password_error != password %}
+            <p class="error">{{v_password_error}}</p>
+            {% endif %}
             <label>Email (optional) 
                 <input name="email" type = "text" value = "{{email}}" />
             </label>
+            {% if email_error|length !=0%}
             <p class="error">{{email_error}}</p>
-            <input type="submit" value="Validate" />
+            {% endif %}
+            <input type="submit" value="validate" />
         </form>
     </body>
 </html>
