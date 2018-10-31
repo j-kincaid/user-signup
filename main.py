@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, render_template
-import cgi, os
+import cgi
 
 
 # TODO:
@@ -22,7 +22,7 @@ def index():
 def signup():
     password = request.form['password']
     template = jinja_env.get_template('index.html')
-    return template.render(password=password)
+    return template.render('index.html')
 
 @app.route('/validate-user')
 def signup_form():
@@ -35,8 +35,9 @@ def signup_form():
 #     except ValueError:
 #         return False
 
-@app.route('/validate-user', methods=['POST'])
-def validate_():
+@app.route('/validate', methods=['POST'])
+def validate_user():
+    validated_user = request.form['index.html']
 
     username = request.form['username']
     password = request.form['password']
@@ -93,10 +94,10 @@ def validate_():
             email_error = "Email must contain @."
 #  a single .
         if ". " not in email:
-            email_error = "Email must contain a . ."
+            error = "Email must contain a . ."
 # between 20 and 3 characters
         if len(email) > 20 or len(email) < 3:
-            email_error = "Email must be between 3 and 20 characters."
+            error = "Email must be between 3 and 20 characters."
         else: 
             email_error =" "
 
