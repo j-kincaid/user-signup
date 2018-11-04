@@ -39,6 +39,17 @@ def validate_user():
 # # TODO:
 # # Check for errors and reject and render feedback:
 
+
+        ######### 
+    for char in password:
+        if password != v_password:
+    # password must match verified password
+            v_password_error: "Passwords must match."
+        break
+        if len(password) > 20 or len(password) < 3:
+            password_error = 'Password must be between 3 and 20 characters.'
+        
+        password = ""
 # No empty fields
     for char in username:
         if char == " ":
@@ -56,15 +67,6 @@ def validate_user():
     # return render_template("index.html", username=username, username_error=username_error, password_error=password_error, v_password_error=v_password_error, email_error=email_error)
         
 
-        ######### 
-    for char in password:
-        if len(password) > 20 or len(password) < 3:
-            password_error = 'Password must be between 3 and 20 characters.'
-        if password != v_password:
-    # password must match verified password
-            v_password_error: "Passwords must match."
-        
-        password = ""
 
 
 # email must have:
