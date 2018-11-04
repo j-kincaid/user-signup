@@ -39,20 +39,8 @@ def validate_user():
 # # TODO:
 # # Check for errors and reject and render feedback:
 
-
-        ######### 
-    for char in password:
-        if password != v_password:
-    # password must match verified password
-            v_password_error: "Passwords must match."
-        break
-        if len(password) > 20 or len(password) < 3:
-            password_error = 'Password must be between 3 and 20 characters.'
-        
-        password = ""
-# No empty fields
     for char in username:
-        if char == " ":
+        if char == "":
             username_error = "Username cannot have spaces"
             break
         if len(username) < 3 or len(username) > 20:
@@ -60,14 +48,15 @@ def validate_user():
         else:
             username_error = ""
 
-   # username and password must be >3 and <20 char
-    # if len(username) < 3 or len(username) > 20:
-    #     username_error = "Username must be between 3 and 20 characters"
-
-    # return render_template("index.html", username=username, username_error=username_error, password_error=password_error, v_password_error=v_password_error, email_error=email_error)
-        
-
-
+    for char in password:
+        if password != v_password:
+    # password must match verified password
+            v_password_error: "Passwords must match."
+            break
+        if len(password) > 20 or len(password) < 3:
+            password_error = 'Password must be between 3 and 20 characters.'
+        else:
+            password_error = ""
 
 # email must have:
     if email:
@@ -83,7 +72,7 @@ def validate_user():
 
             if ' ' in email:
                 email_error = "Email must not contain spaces."
-    
+        else: email_error = " "
     else:
         if len(username_error)==0 and len(password_error) == 0 and len(email_error) == 0:
             return render_template("welcome.html", username=username, password=password, v_password=v_password, email=email)
