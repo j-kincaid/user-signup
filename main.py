@@ -48,7 +48,7 @@ def validate_user():
         v_password_error = "Passwords must match."
 # email must have:
     if email:
-        if not ('@ 'in email):
+        if not ('@'in email):
             email_error = "Email must contain @."
 
         if len(email) > 20 or len(email) < 3:
