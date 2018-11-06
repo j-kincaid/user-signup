@@ -1,5 +1,11 @@
 <!doctype html>
 <html>
+    <style>
+        p {
+            display: inline-block;
+        }
+        .error{ color:red; }
+    </style>
     <body>
 <!--
 # TODO: Create a signup form with fields for Username, Password, Verify
@@ -17,19 +23,19 @@
 -->
 
         <h1>Signup</h1>
-        <form action = "/validate" method="POST">
+        <form action = "/" method="POST">
             <label>Username 
-                <input name="username" type = "text" value = "{{username}}" required />
+                <input name="username" type = "text" value = "{{username}}" />
             </label>
             <p class="error">{{username_error}}</p>
             <br />
             <label>Password
-                <input name="password" type="password" value= "{{password}}" required />
+                <input name="password" type="password" value= "{{password}}" />
             </label>
             <p class="error">{{password_error}}</p>
             <br />
             <label>Verify Password
-                <input name="v_password" type="password" value = "{{v_password}}" required />
+                <input name="v_password" type="password" value = "{{v_password}}" />
             </label>
             <p class="error">{{v_password_error}}</p>
             <br />
